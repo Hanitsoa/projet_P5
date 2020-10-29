@@ -1,0 +1,22 @@
+main, h1 {
+	text-align: center;
+}
+a {
+    text-decoration: none;
+}
+img {
+	width: 12%;
+}
+nav, ul {
+	display: flex ;
+	flex-direction: row;
+	justify-content: space-between;
+	border: solid #F3E9F1 2px;
+	font-size: 1.5em;
+	align-items: center;
+	padding: 10px;
+	background-color: #F3E9F1;
+}
+li {
+	list-style: none;
+}
