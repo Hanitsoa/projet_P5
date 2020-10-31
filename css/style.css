@@ -20,3 +20,26 @@ nav, ul {
 li {
 	list-style: none;
 }
+section {
+	display: flex;
+	flex-direction: row;
+}
+#produit {
+	width: 50%;
+}
+#produit img {
+	width: 100%;
+}
+.infos {
+	width: 50%;
+	border: solid black 2px;
+	text-align: center;
+}
+.choix {
+	display: flex;
+	flex-direction: column;
+}
+article {
+	width: 50%;
+	margin: auto;
+}
