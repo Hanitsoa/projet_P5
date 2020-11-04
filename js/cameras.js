@@ -1,4 +1,4 @@
-var orinocoElt = document.getElementById("contenu");
+var orinocoElt = document.getElementById("cameras");
 
 
 ajaxGet("http://localhost:3000/api/cameras", afficher);
@@ -18,7 +18,7 @@ ajaxGet("http://localhost:3000/api/cameras", afficher);
     var button = document.createElement("a");
     button.href = "produit.html";
     button.appendChild(logoElt);
-    document.getElementById("contenu").appendChild(button);
+    document.getElementById("cameras").appendChild(button);
 
 }
 }

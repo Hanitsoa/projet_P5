@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>panier</title>
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+</head>
+<body>
+	<header>
+		<nav>
+			<a href="projet_P5.html"><img src="../logo_Orinoco.png" alt="Orinoco"/></a>
+			<span><a href="commande.html">Commande</a>
+			<a href="panier.html">Panier</a></span>
+		</nav>
+	</header>
+	<main>
+		<h1>LES PRODUITS DANS VOS PANIERS</h1>
+		<fieldset>
+		        <legend>Vos produits</legend>  
+			<section>
+				<div id="infosProduits"></div>
+			</section>
+		</fieldset>
+		<form>
+			<fieldset>
+		        <legend>Vos coordonnées</legend> 
+			    <p>
+			        <label for="nom">Votre nom :</label><br>
+			        <input type="text" name="nom" id="nom" placeholder="Nom" required="ce champ est obligatoire">
+	            </p>
+	            <p>
+			        <label for="prenom">Votre prénom :</label><br>
+			        <input type="text" name="prenom" id="prenom" placeholder="prenom">
+			    </p>
+				<p>
+	            <label for="courriel">Votre courriel</label><br>
+	            <input type="email" name="courriel" id="courriel" required placeholder="utilisateur@domaine.fr">
+	            <span id="aideCourriel"></span>
+        	</p>
+        	</fieldset>
+        	<fieldset>
+		        <legend>Votre adresse</legend>
+			    <p>
+			        <label for="rue">rue:</label><br>
+			        <input type="text" name="rue" id="rue" placeholder="Rue">
+	            </p>
+	            <p>
+			        <label for="ville">ville :</label><br>
+			        <input type="text" name="ville" id="ville" placeholder="Ville">
+			    </p>
+				<p>
+	            <label for="codePostale">code postale</label><br>
+	            <input type="real" name="codePostale" id="codePostale" placeholder="Code Postale" required >
+	        </p>
+        	</fieldset>
+	        <p>
+	            <input type="checkbox" name="confirmation" id="confirmation">
+	            <label for="confirmation">M'envoyer un courriel de confirmation</label>
+	        </p>
+
+		</form>
+
+		<article>
+			<input type="text" name="profil" placeholder="Entrez votre profil"></input>
+			<button id="Rechercher">Valider ma commande</button></br>
+			<div id="infos"></div>
+		</article>
+	</main>
+	<footer>
+		<ul>
+			<li><a href="MentionLegale.html">Mention Legale</a></li>
+			<li><a href="Contacteznous.html">Contactez-nous</a></li>
+		</ul>
+	</footer>
+	<script src="../js/ajax.js"></script>
+    <script src="../js/panier.js"></script>
+    
+</body>
+</html>
