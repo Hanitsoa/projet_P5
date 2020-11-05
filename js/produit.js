@@ -1,4 +1,10 @@
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+console.log(urlParams)
+console.log(window.location)
+
 var orinocoElt = document.getElementById("produit");
+console.log(window.location.search)
 
 const sectionElt = document.getElementsByTagName("section");
 console.log(sectionElt[0])
@@ -16,7 +22,6 @@ div.appendChild(aside);
 const article = document.createElement('article');
 article.className = 'choix';
 div.appendChild(article);
-
 
 var label = document.getElementsByTagName("label");
 console.log(label)
@@ -36,16 +41,19 @@ function updateValue(e) {
     log.textContent = e.target.value;
 }
 
-ajaxGet("http://localhost:3000/api/cameras", afficher);
+const url =  "http://localhost:3000/api/cameras/" + urlParams.get("id")
+console.log(url)
+
+ajaxGet(url, afficher);
     function afficher(reponse){
     var camerasElt = JSON.parse(reponse);
     console.log(camerasElt);
 
  
-for (var i=0; i<camerasElt[0].lenses.length; i++){
+for (var i=0; i<camerasElt.lenses.length; i++){
     var optionElts = document.createElement("option")
     let photo = document.getElementById("photo");
-    optionElts.textContent = camerasElt[0].lenses[i];
+    optionElts.textContent = camerasElt.lenses[i];
     photo.appendChild(optionElts)
 }
  
@@ -54,14 +62,14 @@ inputElt.addEventListener("click", function(e){
     e.preventDefault();
 alert("ajout au panier");
 localStorage.setItem("lenses", log.textContent);
-logoElt.src = camerasElt[0].imageUrl;
+logoElt.src = camerasElt.imageUrl;
 localStorage.setItem("logoElt", logoElt.src);
-localStorage.setItem("name", camerasElt[0].name)
-localStorage.setItem("price", camerasElt[0].price)
+localStorage.setItem("name", camerasElt.name)
+localStorage.setItem("price", camerasElt.price)
 }) 
 
     var logoElt = document.createElement("img");
-    logoElt.src = camerasElt[0].imageUrl;
+    logoElt.src = camerasElt.imageUrl;
   
     orinocoElt.appendChild(logoElt) 
     var button = document.createElement("a");
@@ -72,17 +80,28 @@ localStorage.setItem("price", camerasElt[0].price)
     var mainElt = document.getElementsByTagName("main");
 
     var descriptionElt = document.createElement("p");
-    descriptionElt.textContent = camerasElt[0].description;
+    descriptionElt.textContent = camerasElt.description;
     mainElt[0].appendChild(descriptionElt);
 
     
     var priceElt = document.createElement("p");
-    priceElt.textContent = camerasElt[0].price +" "+"€";
+    priceElt.textContent = camerasElt.price +" "+"€";
     aside.appendChild(priceElt);
 
     var nameElt = document.createElement("p");
-    nameElt.textContent = camerasElt[0].name;
+    nameElt.textContent = camerasElt.name;
     aside.appendChild(nameElt);
 
 
 }
+
+// panier = [
+// {
+//         id: "flgkdsgfhlkdfghldfkgjh",
+//         details: "lense 1",
+//     },
+//     {
+//         id: "flgkdsgfggjh",
+//         details: "lense B",
+//     },
+// ]
