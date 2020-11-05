@@ -36,7 +36,6 @@ function updateValue(e) {
     log.textContent = e.target.value;
 }
 
-
 ajaxGet("http://localhost:3000/api/cameras", afficher);
     function afficher(reponse){
     var camerasElt = JSON.parse(reponse);
@@ -55,6 +54,10 @@ inputElt.addEventListener("click", function(e){
     e.preventDefault();
 alert("ajout au panier");
 localStorage.setItem("lenses", log.textContent);
+logoElt.src = camerasElt[0].imageUrl;
+localStorage.setItem("logoElt", logoElt.src);
+localStorage.setItem("name", camerasElt[0].name)
+localStorage.setItem("price", camerasElt[0].price)
 }) 
 
     var logoElt = document.createElement("img");
