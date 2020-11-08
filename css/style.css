@@ -43,3 +43,16 @@ article {
 	width: 50%;
 	margin: auto;
 }
+input:invalid+span:after {
+  position: absolute;
+  content: '✖';
+  padding-left: 5px;
+  color: red;
+}
+
+input:valid+span:after {
+  position: absolute;
+  content: '✓';
+  padding-left: 5px;
+  color: green;
+}

@@ -27,44 +27,51 @@
 		        <legend>Vos coordonnées</legend> 
 			    <p>
 			        <label for="nom">Votre nom :</label><br>
-			        <input type="text" name="nom" id="nom" placeholder="Nom" required="ce champ est obligatoire">
+			        <input type="text" name="nom" id="nom" placeholder="Nom" required pattern="[A-z]{2,20}">
+    				<span class="validity"></span>
 	            </p>
 	            <p>
 			        <label for="prenom">Votre prénom :</label><br>
-			        <input type="text" name="prenom" id="prenom" placeholder="prenom">
+			        <input type="text" name="prenom" id="prenom" required placeholder="prenom" pattern="[A-z]{2,20}">
+    				<span class="validity"></span>
 			    </p>
 				<p>
-	            <label for="courriel">Votre courriel</label><br>
-	            <input type="email" name="courriel" id="courriel" required placeholder="utilisateur@domaine.fr">
-	            <span id="aideCourriel"></span>
-        	</p>
-        	</fieldset>
-        	<fieldset>
+		            <label for="courriel">Votre courriel</label><br>
+		            <input type="email" name="courriel" id="courriel" required placeholder="utilisateur@domaine.fr">
+    				<span class="validity"></span>
+		            <span id="aideCourriel"></span>
+		        </p> 
+			</fieldset>	
+      		<fieldset>	
 		        <legend>Votre adresse</legend>
 			    <p>
 			        <label for="rue">rue:</label><br>
-			        <input type="text" name="rue" id="rue" placeholder="Rue">
+			        <input type="text" name="rue" required id="rue" placeholder="Rue" pattern="[0-999]">
+			        <span class="validity"></span>
 	            </p>
 	            <p>
 			        <label for="ville">ville :</label><br>
-			        <input type="text" name="ville" id="ville" placeholder="Ville">
+			        <input type="text" name="ville" required id="ville" placeholder="Ville" pattern="[A-z]{2,20}">
+			        <span class="validity"></span>
 			    </p>
 				<p>
-	            <label for="codePostale">code postale</label><br>
-	            <input type="real" name="codePostale" id="codePostale" placeholder="Code Postale" required >
-	        </p>
+		            <label for="codePostale">code postale</label><br>
+		            <input type="real" name="codePostale" id="codePostale" placeholder="Code Postale" required pattern="[0-9]{5}">
+		            <span class="validity"></span>
+	        	</p>
+	        	
         	</fieldset>
-	        <p>
-	            <input type="checkbox" name="confirmation" id="confirmation">
-	            <label for="confirmation">M'envoyer un courriel de confirmation</label>
-	        </p>
+        	    <p>
+		            <input type="checkbox" name="confirmation" id="confirmation">
+		            <label for="confirmation">M'envoyer un courriel de confirmation</label>
+	       	    </p>
 
-		</form>
-
-		<article>
-			<button id="Rechercher">Valider ma commande</button></br>
-			<div id="infos"></div>
-		</article>
+		<!-- </form> -->
+<!-- 
+		<article> -->
+			<button id="commande">Valider ma commande</button></br>
+			</form>
+		<!-- </article> -->
 	</main>
 	<footer>
 		<ul>
