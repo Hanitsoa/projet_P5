@@ -17,8 +17,6 @@ inputElt.addEventListener("click", function(e){
     e.preventDefault()
 localStorage.setItem("prix", camerasElt.price)
 console.log(camerasElt.price)
-})
-
-
+}) 
 
 

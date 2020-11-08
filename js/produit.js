@@ -30,7 +30,8 @@ article.appendChild(photo)
 var ajoutPanier = document.querySelector("input");
 article.appendChild(ajoutPanier)
 
-var retourProduit
+var retourProduit = document.querySelector("button")
+article.appendChild(retourProduit)
 
 var selectElt = document.createElement("select");
 console.log(selectElt)
@@ -109,5 +110,4 @@ localStorage.setItem("price", camerasElt.price)
 //         details: "lense B",
 //     },
 // ]
-// const url =  "http://localhost:3000/api/cameras/" + urlParams.get("id")
-console.log(url)
+
