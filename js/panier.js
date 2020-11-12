@@ -19,4 +19,3 @@ localStorage.setItem("prix", camerasElt.price)
 console.log(camerasElt.price)
 }) 
 
-
