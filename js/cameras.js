@@ -12,8 +12,8 @@ ajaxGet("http://localhost:3000/api/cameras", afficher);
 
     var logoElt = document.createElement("img");
     logoElt.src = camerasElt[i].imageUrl;
-    logoElt.style.height = "20%";
-    logoElt.style.width = "30%";
+    // logoElt.style.height = "20%";
+    // logoElt.style.width = "30%";
     orinocoElt.appendChild(logoElt) 
     var button = document.createElement("a");
     button.href = "produit.html?id=" +camerasElt[i]._id;
