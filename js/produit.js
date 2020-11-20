@@ -47,7 +47,7 @@ function updateValue(e) {
 const url =  "http://localhost:3000/api/cameras/" + urlParams.get("id")
 console.log(url)
 console.log(urlParams.get("id"))
-localStorage.setItem("id", urlParams.get("id"));
+// localStorage.setItem("id", urlParams.get("id"));
 
 ajaxGet(url, afficher);
     function afficher(reponse){
@@ -67,11 +67,11 @@ inputElt.addEventListener("click", function(e){
     e.preventDefault();
 alert("ajout au panier");
 
-localStorage.setItem("lenses", log.textContent);
-logoElt.src = camerasElt.imageUrl;
-localStorage.setItem("logoElt", logoElt.src);
-localStorage.setItem("name", camerasElt.name)
-localStorage.setItem("price", camerasElt.price)
+// localStorage.setItem("lenses", log.textContent);
+// logoElt.src = camerasElt.imageUrl;
+// localStorage.setItem("logoElt", logoElt.src);
+// localStorage.setItem("name", camerasElt.name)
+// localStorage.setItem("price", camerasElt.price)
 }) 
 
 
@@ -98,16 +98,18 @@ localStorage.setItem("price", camerasElt.price)
     var nameElt = document.createElement("p");
     nameElt.textContent = camerasElt.name;
     aside.appendChild(nameElt);
-}
 
-// panier = [
-// {
-//         id: "flgkdsgfhlkdfghldfkgjh",
-//         details: "lense 1",
-//     },
-//     {
-//         id: "flgkdsgfggjh",
-//         details: "lense B",
-//     },
-// ]
+    var inputElt = document.querySelector("input")
+    inputElt.addEventListener("click", function(){
+    let item = {
+        "name": camerasElt.name,
+        "lenses": log.textContent,
+        "img": camerasElt.imageUrl,
+        "price": camerasElt.price
+    }
+    addItemToCart(item);
+});
+};
+
+
 
