@@ -66,3 +66,12 @@ input:valid+span:after {
   padding-left: 5px;
   color: green;
 }
+.container {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	font-weight: normal;
+}
+#infosProduits {
+	font-weight: bold;
+}

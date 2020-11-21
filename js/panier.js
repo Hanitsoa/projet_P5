@@ -12,24 +12,25 @@ produitElt = JSON.parse(produitElt);
 
 function afficher(produit){
 	
-	var container = document.createElement("div");
+	var div = document.createElement("div");
+    div.className = "container";
 	console.log(produit.name);
 	console.log(produit.price);
 	var logoElt = document.createElement("img");
     logoElt.src = produit.img;
-    container.appendChild(logoElt);
+    div.appendChild(logoElt);
 
     totalPrice += produit.price;
     
     var nameElt = document.createElement("p");
     nameElt.textContent = produit.name;
-    container.appendChild(nameElt);
+    div.appendChild(nameElt);
 
     var priceElt = document.createElement("p");
     priceElt.textContent = produit.price +" "+"€";
-    container.appendChild(priceElt);
+    div.appendChild(priceElt);
 
-    item.appendChild(container);
+    item.appendChild(div);
 }
 produitElt.forEach( produit => afficher(produit ));
 
