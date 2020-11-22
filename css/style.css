@@ -79,6 +79,9 @@ input:valid+span:after {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
-	padding-right: 20px;
-	padding-left: 20px;
+	padding-right: 160px;
+	padding-left: 30px;
+}
+.subtotal {
+	font-weight: bold;
 }

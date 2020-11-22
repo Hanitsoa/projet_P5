@@ -49,12 +49,30 @@ function afficher(produit){
     priceElt.textContent = produit.price +" "+"€";
     div.appendChild(priceElt);
 
+    var supprime = document.createElement("button");
+    supprime.textContent = "supprimer";
+    div.appendChild(supprime);
+
+    supprime.addEventListener("click", supprimer);
+    function supprimer(produit){
+    var retireName = div.remove(produit.name); 
+    totalPrice = totalPrice -= parseInt(priceElt.textContent);
+    var total = document.createElement("p");
+    var subtotal = document.querySelector(".subtotal");
+    subtotal.textContent = "Total :"+" "+ totalPrice +" "+"€";
+    subtotal.appendChild(total);
+    
+console.log(total);
+console.log(subtotal);
+console.log(total.textContent);
+    }
+
     item.appendChild(div);
 }
 produitElt.forEach( produit => afficher(produit ));
 
+var subtotal = document.querySelector(".subtotal");
 var total = document.createElement("p");
-// var total = document.querySelector(".subtotal");
-    total.textContent = "Sous total :"+" "+ totalPrice +" "+"€";
-item.appendChild(total);
+    total.textContent = "Total :"+" "+ totalPrice +" "+"€";
+subtotal.appendChild(total);
 
