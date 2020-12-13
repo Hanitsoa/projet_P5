@@ -1,16 +1,13 @@
 
-
 let totalPrice = 0;
 const item = document.getElementById("infosProduits");
 
 let produitElt = sessionStorage.getItem("cart");
-
 produitElt = JSON.parse(produitElt);
         
 var div = document.createElement("div");
 div.className = "designation";
 item.appendChild(div);
-
 
 var quantite = document.createElement("p");
 quantite.textContent = "quantité";
@@ -34,8 +31,6 @@ a.textContent = " Retour Produits ";
 a.href = "cameras.html";
 div.appendChild(a);
 
-        
-
 function afficher(produit, index){
 
     var div = document.createElement("div");
@@ -51,13 +46,9 @@ function afficher(produit, index){
     quantite.classList.add("quantite");
     div.appendChild(quantite);
 
-   
-
     var logoElt = document.createElement("img");
     logoElt.src = produit.img;
     div.appendChild(logoElt);
-
-    // totalPrice += produit.price;
     
     var nameElt = document.createElement("p");
     nameElt.textContent = produit.name;
@@ -78,21 +69,15 @@ function afficher(produit, index){
     console.log(supprime);
     div.appendChild(supprime);
 
-   
-
     supprime.addEventListener("click", function(e){
         supprimer(e);
         displayTotalPrice();
-        // displayQuantite();
-    });
+       });
     item.appendChild(div);
 }
-console.log(item.name);
 
 produitElt.forEach( (produit, index) => afficher(produit, index));
 displayTotalPrice()
-
-
 
 var subtotal = document.querySelector(".subtotal");
 
@@ -104,7 +89,6 @@ function valider(){
 }
 
 function supprimer(event){
-    
     console.log(event.target.dataset.index);
    
     let cart = sessionStorage.getItem("cart")
@@ -122,27 +106,15 @@ function supprimer(event){
 
     cart = JSON.stringify(cart);
     sessionStorage.setItem("cart", cart)
-   
 }
 function displayTotalPrice(){
-    console.log("test");
     let cart = sessionStorage.getItem("cart");
     cart = JSON.parse(cart);
     var prix = 0;
-
     for (var i=0; i < cart.length; i++){
        prix = prix + cart[i].price * cart[i].qte;
-       
-       // subtotal.appendChild(total);
-       console.log(cart.length);
-       console.log(prix);
-       console.log(i);
     }
     var subtotal = document.querySelector(".subtotal");
     subtotal.textContent = "Total :"+" "+ prix +" "+"€";
 }
 
-function displayQuantite(){
-   
-    
-}

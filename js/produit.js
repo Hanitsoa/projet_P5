@@ -73,26 +73,20 @@ function afficher(reponse){
     nameElt.textContent = camerasElt.name;
     aside.appendChild(nameElt);
 
-
-// var inputElt = document.querySelector("input")
-// inputElt.addEventListener("click", function(){
-//     addItemToCart(urlParams.get("id"));
-// });
-
 console.log(camerasElt._id);
 
-var inputElt = document.querySelector("input")
-inputElt.addEventListener("click", function(){
-    let item = {
-        "name": camerasElt.name,
-        "lenses": log.textContent,
-        "img": camerasElt.imageUrl,
-        "price": camerasElt.price,
-        "id": camerasElt._id,
-        "qte": 1,
-    }
+	var inputElt = document.querySelector("input")
+	inputElt.addEventListener("click", function(){
+	    let item = {
+	        "name": camerasElt.name,
+	        "lenses": log.textContent,
+	        "img": camerasElt.imageUrl,
+	        "price": camerasElt.price,
+	        "id": camerasElt._id,
+	        "qte": 1,
+	    }
     addItemToCart(item);
-});
+	});
 };
 
 
