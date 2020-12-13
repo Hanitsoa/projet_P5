@@ -21,7 +21,19 @@
 				<img id="image" >
 				<p id="infosProduits"></p>
 			</div>
-			<p class="subtotal"></p>
+
+<!-- <table class="table">
+    <thead>
+        <tr><th>Article</th><th>Prix</th><th>Quantité</th></tr>
+    </thead>
+    <tbody id="cart-tablebody"></tbody>
+</table> -->
+
+<p class="subtotal"></p>
+
+<!-- <button id="confirm-command">Passer la commande</button> -->
+
+
 		</fieldset>
 		<form>
 			<fieldset>
@@ -37,8 +49,8 @@
     				<span class="validity"></span>
 			    </p>
 				<p>
-		            <label for="courriel">Votre courriel</label><br>
-		            <input type="email" name="courriel" id="courriel" required placeholder="utilisateur@domaine.fr">
+		            <label for="email">Votre courriel</label><br>
+		            <input type="email" name="courriel" id="email" required placeholder="utilisateur@domaine.fr">
     				<span class="validity"></span>
 		            <span id="aideCourriel"></span>
 		        </p> 
@@ -80,9 +92,27 @@
 			<li><a href="Contacteznous.html">Contactez-nous</a></li>
 		</ul>
 	</footer>
+	<script>
+         function checkEmail(email) {
+             var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+             return re.test(email);
+         }
+         function validate() {
+             var email = document.getElementById("email").value;
+         
+             if (checkEmail(email)) {
+                 alert('Adresse e-mail valide');
+             } else {
+                 alert('Adresse e-mail non valide');
+             }
+             return false;
+         }
+        
+      </script>
 	<script src="../js/ajax.js"></script>
 	<script src="../js/storage.js"></script>
     <script src="../js/panier.js"></script>
     
 </body>
 </html>
+

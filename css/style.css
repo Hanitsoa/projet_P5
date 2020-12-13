@@ -69,19 +69,54 @@ input:valid+span:after {
 .container {
 	display: flex;
 	flex-direction: row;
-	justify-content: space-between;
+	justify-content: flex-start;
 	font-weight: normal;
+	padding-left: 40px;
+	/*border: solid black 1px;*/
+	margin-bottom: 20px;
+}
+.container img {
+	/*border: solid black 1px;*/
+	/*width: 100px;*/
+	padding-right: 50px;
+}
+.container p {
+	padding-right: 50px;
+	/*border: solid black 1px;*/
+	width: 60px;
 }
 #infosProduits {
+	font-weight: bold;
+	/*border: solid black 1px;*/
+}
+.subtotal {
 	font-weight: bold;
 }
 #infosProduits .designation {
 	display: flex;
 	flex-direction: row;
-	justify-content: space-between;
-	padding-right: 160px;
-	padding-left: 30px;
+	justify-content: flex-start;
+	
+	padding-left: 24px;
+	/*width: 100px;*/
 }
-.subtotal {
-	font-weight: bold;
+.designation p {
+	/*border: solid black 1px;*/
+	
+	padding-right: 73px;
+}
+.designation a {
+	/*border: solid black 1px; */
+	justify-content: center;
+	padding-top: 16px;
+	color: red;
+}
+.container .quantite {
+	/*color: red;*/
+	width: 10px;
+	justify-content: center;
+	/*border: solid black 1px;*/
+}
+#infosProduits button {
+	width: 110px;
 }

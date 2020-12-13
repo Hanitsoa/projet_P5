@@ -1,29 +1,22 @@
-function updateCart(item) {
+function addItemToCart(item) {
     let cart = sessionStorage.getItem("cart")
-    console.log(item);
     if (cart){
         cart = JSON.parse(cart);
-        console.log(cart);
-        if (cart.includes(item) === false){
+        if (cart.some(elt => (elt.id === item.id) && (elt.lenses === item.lenses))){
+            let index = cart.findIndex(elt => (elt.id === item.id) && (elt.lenses === item.lenses));
+            cart[index].qte += 1;
+            cart = JSON.stringify(cart)
+            sessionStorage.setItem("cart", cart);
+        }
+        else {
+            
             cart.push(item)
             cart = JSON.stringify(cart)
-            console.log(cart);
             sessionStorage.setItem("cart", cart)
+
         }
     } else {
         cart = JSON.stringify([item])
         sessionStorage.setItem("cart", cart)
-        console.log(cart);
     }
-}
-
-function addItemToCart(item) {
-    let value = sessionStorage.getItem(item)
-    if (value){
-        value = parseInt(value) + 1
-    } else {
-        value = 1
-    }
-    sessionStorage.setItem(item, value)
-    updateCart(item);
 }
