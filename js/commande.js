@@ -4,8 +4,8 @@ var id = localStorage.getItem("id");
 console.log(id)
 
 const produit = document.getElementById("commande");
-var produitElt = localStorage.getItem("id")
-var price = localStorage.getItem("price")
+var produitElt = sessionStorage.getItem("id")
+var price = sessionStorage.getItem("price")
 
 
 

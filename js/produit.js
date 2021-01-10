@@ -86,6 +86,7 @@ console.log(camerasElt._id);
 	        "qte": 1,
 	    }
     addItemToCart(item);
+    alert("Produit ajouté aux panier");
 	});
 };
 

@@ -22,69 +22,50 @@
 				<p id="infosProduits"></p>
 			</div>
 
-<!-- <table class="table">
-    <thead>
-        <tr><th>Article</th><th>Prix</th><th>Quantité</th></tr>
-    </thead>
-    <tbody id="cart-tablebody"></tbody>
-</table> -->
-
 <p class="subtotal"></p>
-
-<!-- <button id="confirm-command">Passer la commande</button> -->
-
 
 		</fieldset>
 		<form>
-			<fieldset>
+			<!-- <fieldset> -->
 		        <legend>Vos coordonnées</legend> 
 			    <p>
 			        <label for="nom">Votre nom :</label><br>
-			        <input type="text" name="nom" id="nom" placeholder="Nom" required pattern="[A-z]{2,20}">
-    				<span class="validity"></span>
+			        <input type="text" name="nom" id="nom" placeholder="Nom" required pattern="[A-Z][a-z]+">
+    				<span id="missNom"></span>
 	            </p>
 	            <p>
 			        <label for="prenom">Votre prénom :</label><br>
-			        <input type="text" name="prenom" id="prenom" required placeholder="prenom" pattern="[A-z]{2,20}">
-    				<span class="validity"></span>
+			        <input type="text" name="prenom" id="prenom" required placeholder="prenom" pattern="[A-Z][a-z]+([-A-Z][a-z]*)*">
+    				<span id="missPrenom"></span>
 			    </p>
 				<p>
-		            <label for="email">Votre courriel</label><br>
-		            <input type="email" name="courriel" id="email" required placeholder="utilisateur@domaine.fr">
-    				<span class="validity"></span>
-		            <span id="aideCourriel"></span>
+		            <label for="courriel">Votre courriel</label><br>
+		            <input type="email" name="courriel" id="courriel" required placeholder="utilisateur@domaine.fr" pattern="[a-zA-Z0-9._-]+@[a-zA-Z-]+\.[a-zA-Z]{2,3}">
+    				<span id="missMail"></span>
 		        </p> 
-			</fieldset>	
-      		<fieldset>	
-		        <legend>Votre adresse</legend>
+			<!-- </fieldset>	 -->
+      		<!-- <fieldset>	 -->
+		        <!-- <legend>Votre adresse</legend> -->
 			    <p>
-			        <label for="rue">rue:</label><br>
-			        <input type="text" name="rue" required id="rue" placeholder="Rue" pattern="[0-999]">
-			        <span class="validity"></span>
+			        <label for="adresse">rue:</label><br>
+			        <input type="text" name="adresse" required id="adresse" placeholder="Rue" pattern="[0-9]{1,4}[\s][a-zA-Z][a-z]+([\s][A-Za-z]*)*">
+			        <span id="missAdresse"></span>
 	            </p>
 	            <p>
 			        <label for="ville">ville :</label><br>
-			        <input type="text" name="ville" required id="ville" placeholder="Ville" pattern="[A-z]{2,20}">
-			        <span class="validity"></span>
+			        <input type="text" name="ville" required id="ville" placeholder="Ville" pattern="[A-Z][a-z]+">
+			        <span id="missVille"></span>
 			    </p>
 				<p>
 		            <label for="codePostale">code postale</label><br>
 		            <input type="real" name="codePostale" id="codePostale" placeholder="Code Postale" required pattern="[0-9]{5}">
-		            <span class="validity"></span>
+		            <span id="missCodePostale"></span>
 	        	</p>
 	        	
-        	</fieldset>
-        	    <p>
-		            <input type="checkbox" name="confirmation" id="confirmation">
-		            <label for="confirmation">M'envoyer un courriel de confirmation</label>
-	       	    </p>
-
-		<!-- </form> -->
-<!-- 
-		<article> -->
-			<button id="commande">Valider ma commande</button></br>
-			</form>
-		<!-- </article> -->
+        	<!-- </fieldset><br> -->
+        	    
+			<input type="submit" id="bouton_envoi" value="Valider ma commande"></br>
+		</form>
 	</main>
 	<footer>
 		<ul>
@@ -93,21 +74,137 @@
 		</ul>
 	</footer>
 	<script>
-         function checkEmail(email) {
-             var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-             return re.test(email);
-         }
-         function validate() {
-             var email = document.getElementById("email").value;
+         // function checkEmail(email) {
+         //     var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+         //     return re.test(email);
+         // }
+         // function validate() {
+         //     var email = document.getElementById("email").value;
          
-             if (checkEmail(email)) {
-                 alert('Adresse e-mail valide');
-             } else {
-                 alert('Adresse e-mail non valide');
-             }
-             return false;
-         }
-        
+         //     if (checkEmail(email)) {
+         //         alert('Adresse e-mail valide');
+         //     } else {
+         //         alert('Adresse e-mail non valide');
+         //     }
+         //     return false;
+         // }
+  //       var formValid = document.getElementById("bouton_envoi");
+		// var mail = document.getElementById("courriel");
+		// var missMail = document.getElementById("missMail");
+		// var mailValid = /^[a-zA-Z0-9._-]+@[a-zA-Z-]+\.[a-zA-Z]{2,3}$/
+		// var missPrenom = document.getElementById("missPrenom");
+		// var prenomValid = /^[A-Z][a-z]+([-A-Z][a-z]*)*$/
+		// var missNom = document.getElementById("missNom");
+		// var nomValid = /^[A-Z][a-z]+$/
+		// var missAdresse = document.getElementById("missAdresse");
+		// var adresseValid = /^[0-9]{1,4}[\s][a-zA-Z][a-z]+([\s][A-Za-z]*)*$/
+		// var missVille = document.getElementById("missVille");
+		// var villeValid = /^[A-Z][a-z]+$/
+		// var missCodePostale = document.getElementById("missCodePostale");
+		// var codePostaleValid = /^[0-9]{5}$/
+
+		// 	// [miniscule Majuscule 0à9 ._-]
+		// 	// + veut dire peuvent repeter autant de fois
+		// 	// \ pour dire au serveur que c'est un caractere (ici point)
+		// 	// /^ debut d'un regex,3}
+		// 	// $/ la fin d'un regex
+
+		// formValid.addEventListener("click", function(event){
+		// 		validationMail(event);
+		// 		validationPrenom(event);
+		// 		validationNom(event);
+		// 		validationAdresse(event);
+		// 		validationVille(event);
+		// 		validationCodePostale(event);
+		// });
+		// // missMail.textContent = "";
+
+		// function validationMail(event){
+		// 	console.log(courriel.value);//valeur input
+		// 	console.log(mailValid.test(courriel.value));// type boolean, renvoie true ou false//
+		// 	console.log(courriel.validity.valueMissing);
+		// 	if (courriel.validity.valueMissing){
+		// 		event.preventDefault();
+		// 		missMail.textContent = "Mail manquant";
+		// 	}else if (mailValid.test(courriel.value) == false){
+		// 		event.preventDefault();
+		// 		missMail.textContent = "Format incorrect";
+		// 		}else{
+		// 			missMail.textContent = "";
+		// 		}
+		// }
+
+		// function validationPrenom(event){
+		// 	event.preventDefault();
+		// 	if (prenom.validity.valueMissing){
+		// 		event.preventDefault();
+		// 		missPrenom.textContent = "Prénom manquant";
+		// 	console.log(missPrenom.textContent);
+		// 	}else if (prenomValid.test(prenom.value) == false){
+		// 		event.preventDefault();
+		// 		missPrenom.textContent = "Format incorrect";
+		// 	}else{
+		// 			missPrenom.textContent = "";
+		// 		}
+		// }
+	
+		// function validationNom(event){
+		// 	event.preventDefault();
+		// 	if (nom.validity.valueMissing){
+		// 		event.preventDefault();
+		// 		missNom.textContent = "Nom manquant";
+		// 	console.log(missNom.textContent);
+		// 	}else if (nomValid.test(nom.value) == false){
+		// 		event.preventDefault();
+		// 		missNom.textContent = "Format incorrect";
+		// 	}else{
+		// 			missNom.textContent = "";
+		// 		}
+		// }
+
+		// function validationAdresse(event){
+		// 	event.preventDefault();
+		// 	if (adresse.validity.valueMissing){
+		// 		event.preventDefault();
+		// 		missAdresse.textContent = "adresse manquant";
+		// 	console.log(missAdresse.textContent);
+		// 	}else if (adresseValid.test(adresse.value) == false){
+		// 		event.preventDefault();
+		// 		missAdresse.textContent = "Format incorrect";
+		// 	}else{
+		// 			missAdresse.textContent = "";
+		// 		}
+		// }
+
+		// function validationVille(event){
+		// 	event.preventDefault();
+		// 	if (ville.validity.valueMissing){
+		// 		event.preventDefault();
+		// 		missVille.textContent = "Ville manquant";
+		// 	console.log(missVille.textContent);
+		// 	}else if (villeValid.test(ville.value) == false){
+		// 		event.preventDefault();
+		// 		missVille.textContent = "Format incorrect";
+		// 	}else{
+		// 			missVille.textContent = "";
+		// 		}
+		// }
+
+		// function validationCodePostale(event){
+		// 	event.preventDefault();
+		// 	if (codePostale.validity.valueMissing){
+		// 		event.preventDefault();
+		// 		missCodePostale.textContent = "Code postale manquant";
+		// 	console.log(missCodePostale.textContent);
+		// 	}else if (codePostaleValid.test(codePostale.value) == false){
+		// 		event.preventDefault();
+		// 		missCodePostale.textContent = "Format incorrect";
+		// 	}else{
+		// 			missCodePostale.textContent = "";
+		// 		}
+		// }
+
+
       </script>
 	<script src="../js/ajax.js"></script>
 	<script src="../js/storage.js"></script>
