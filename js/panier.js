@@ -81,12 +81,6 @@ displayTotalPrice()
 
 var subtotal = document.querySelector(".subtotal");
 
-// var valide = document.querySelector("#bouton_envoi");
-// valide.addEventListener("click", valider);
-// function valider(){
-//     alert("Votre commande a bien été prise en compte");
-//  }
-
 
     var formValid = document.getElementById("bouton_envoi");
         var mail = document.getElementById("courriel");
@@ -213,6 +207,7 @@ var subtotal = document.querySelector(".subtotal");
                     codePostale.value="";
                     var acheter = document.querySelector(".container");
                     acheter.textContent="";
+                    
                     var subtotal = document.querySelector(".subtotal");
                     subtotal.textContent ="";
                 }
