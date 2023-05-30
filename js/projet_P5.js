@@ -1,11 +1,11 @@
 var orinocoElt = document.getElementById("contenu");
 
-{
-ajaxGet("http://localhost:3000/api/cameras", afficher);
-    function afficher(reponse){
-    var camerasElt = JSON.parse(reponse);
-    console.log(camerasElt);
-    var descriptionElt = document.createElement("p");
+
+async function displayCameras(){
+  var camerasElt = await fetch("http://localhost:3000/api/cameras")
+  camerasElt = await camerasElt.json();
+  
+  var descriptionElt = document.createElement("p");
     descriptionElt.textContent = "cameras";
     orinocoElt.appendChild(descriptionElt);
     var logoElt = document.createElement("img");
@@ -18,12 +18,12 @@ ajaxGet("http://localhost:3000/api/cameras", afficher);
     button.appendChild(logoElt);
     document.getElementById("contenu").appendChild(button);
 }
-}
-{
-ajaxGet("http://localhost:3000/api/teddies", afficher);
-    function afficher(reponse){
-    var teddiesElt = JSON.parse(reponse);
-    console.log(teddiesElt);
+displayCameras();
+
+async function displayTeddies(){
+    var teddiesElt = await fetch("http://localhost:3000/api/teddies")
+    teddiesElt = await teddiesElt.json();
+    
     var descriptionElt = document.createElement("p");
     descriptionElt.textContent = "teddies";
     orinocoElt.appendChild(descriptionElt);
@@ -37,12 +37,12 @@ ajaxGet("http://localhost:3000/api/teddies", afficher);
     button.appendChild(logoElt);
     document.getElementById("contenu").appendChild(button);
 }
-}
-{
-ajaxGet("http://localhost:3000/api/furniture", afficher);
-    function afficher(reponse){
-    var furnitureElt = JSON.parse(reponse);
-    console.log(furnitureElt);
+displayTeddies();
+
+async function displayFurniture(){
+    var furnitureElt = await fetch("http://localhost:3000/api/furniture")
+    furnitureElt = await furnitureElt.json();
+    
     var descriptionElt = document.createElement("p");
     descriptionElt.classList.add("test")
     descriptionElt.textContent = "furniture";
@@ -57,18 +57,4 @@ ajaxGet("http://localhost:3000/api/furniture", afficher);
     button.appendChild(logoElt);
     document.getElementById("contenu").appendChild(button);
 }
-}
-
-  const promise1 = new Promise((resolve, reject) => {
-  setTimeout(() => {
-    resolve('foo');
-  }, 300);
-});
-
-promise1.then((value) => {
-  console.log(value);
-  // expected output: "foo"
-});
-
-console.log(promise1);
-// expected output: [object Promise]
+displayFurniture();

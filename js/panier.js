@@ -5,65 +5,61 @@ const item = document.getElementById("infosProduits");
 let produitElt = sessionStorage.getItem("cart");
 produitElt = JSON.parse(produitElt);
         
-var div = document.createElement("div");
+let div = document.createElement("div");
 div.className = "designation";
 item.appendChild(div);
 
-var quantite = document.createElement("p");
+let quantite = document.createElement("p");
 quantite.textContent = "quantité";
 div.appendChild(quantite);
-
-var images = document.createElement("p");
+let images = document.createElement("p");
 images.textContent = "images";
 div.appendChild(images);
-var noms = document.createElement("p");
+let noms = document.createElement("p");
 noms.textContent = "noms";
 div.appendChild(noms);
-var lenses = document.createElement("p");
+let lenses = document.createElement("p");
 lenses.textContent = "lenses";
 div.appendChild(lenses);
-var prix = document.createElement("p");
+let prix = document.createElement("p");
 prix.textContent = "prix";
 div.appendChild(prix);
-
-var a = document.createElement("a");
-a.textContent = " Retour Produits ";
-a.href = "cameras.html";
-div.appendChild(a);
+let boutonRetour = document.createElement("p");
+boutonRetour.textContent = "retour";
+boutonRetour.className = "retour";
+div.appendChild(boutonRetour);
+boutonRetour.addEventListener("click", function(){
+    window.history.back();
+});
 
 function afficher(produit, index){
-
-    var div = document.createElement("div");
+    let div = document.createElement("div");
     div.className = "container";
-    console.log(produit.name);
-    console.log(produit.price);
-    console.log(produit);
-    console.log(produitElt);
-    console.log(produit.qte);
-
-    var quantite = document.createElement("p");
+    
+    let quantite = document.createElement("p");
     quantite.textContent = produit.qte;
     quantite.classList.add("quantite");
     div.appendChild(quantite);
 
-    var logoElt = document.createElement("img");
+    let logoElt = document.createElement("img");
     logoElt.src = produit.img;
     div.appendChild(logoElt);
     
-    var nameElt = document.createElement("p");
+    let nameElt = document.createElement("p");
     nameElt.textContent = produit.name;
     div.appendChild(nameElt);
 
-    var lensesElt = document.createElement("p");
+    let lensesElt = document.createElement("p");
     lensesElt.textContent = produit.lenses;
     div.appendChild(lensesElt);
 
-    var priceElt = document.createElement("p");
-    priceElt.textContent = produit.price +" "+"€";
+    let priceElt = document.createElement("p");
+    priceElt.textContent = produit.price * produit.qte+" "+"€";
     div.appendChild(priceElt);
 
-    var supprime = document.createElement("button");
+    let supprime = document.createElement("button");
     supprime.textContent = "supprimer";
+    supprime.className = "supprime"
 
     supprime.setAttribute("data-index", index);
     console.log(supprime);
@@ -79,29 +75,28 @@ function afficher(produit, index){
 produitElt.forEach( (produit, index) => afficher(produit, index));
 displayTotalPrice()
 
-var subtotal = document.querySelector(".subtotal");
+const subtotal = document.querySelector(".subtotal");
 
-var formValid = document.getElementById("bouton_envoi");
-var mail = document.getElementById("courriel");
-var missMail = document.getElementById("missMail");
-var mailValid = /^[a-zA-Z0-9._-]+@[a-zA-Z-]+\.[a-zA-Z]{2,3}$/
-var missPrenom = document.getElementById("missPrenom");
-var prenomValid = /^[A-Z][a-z]+([-A-Z][a-z]*)*$/
-var missNom = document.getElementById("missNom");
-var nomValid = /^[A-Z][a-z]+$/
-var missAdresse = document.getElementById("missAdresse");
-var adresseValid = /^[0-9]{1,4}[\s][a-zA-Z][a-z]+([\s][A-Za-z]*)*$/
-var missVille = document.getElementById("missVille");
-var villeValid = /^[A-Z][a-z]+$/
-var missCodePostale = document.getElementById("missCodePostale");
-var codePostaleValid = /^[0-9]{5}$/
+const formValid = document.getElementById("bouton_envoi");
+const mail = document.getElementById("courriel");
+const missMail = document.getElementById("missMail");
+const mailValid = /^[a-zA-Z0-9._-]+@[a-zA-Z-]+\.[a-zA-Z]{2,3}$/
+const missPrenom = document.getElementById("missPrenom");
+const prenomValid = /^[A-Z][a-z]+([-A-Z][a-z]*)*$/
+const missNom = document.getElementById("missNom");
+const nomValid = /^[A-Z][a-z]+$/
+const missAdresse = document.getElementById("missAdresse");
+const adresseValid = /^[0-9]{1,4}[\s][a-zA-Z][a-z]+([\s][A-Za-z]*)*$/
+const missVille = document.getElementById("missVille");
+const villeValid = /^[A-Z][a-z]+$/
+const missCodePostale = document.getElementById("missCodePostale");
+const codePostaleValid = /^[0-9]{5}$/
 
             // [miniscule Majuscule 0à9 ._-]
             // + veut dire peuvent repeter autant de fois
             // \ pour dire au serveur que c'est un caractere (ici point)
             // /^ debut d'un regex,3}
             // $/ la fin d'un regex
-
 formValid.addEventListener("click", function(event){
     let validators = [] 
     validators.push(validationMail(event));
@@ -112,8 +107,8 @@ formValid.addEventListener("click", function(event){
     validators.push(validationCodePostale(event));
     console.log(validators);
                        
-    if (validators.every((value) => value === true )) {
-        passerCommande();
+    if (validators.every((value) => value === true )){
+        postOrder();
     }        
 });
 
@@ -131,140 +126,75 @@ function supprimer(event){
         cart.splice(event.target.dataset.index,1);
         productHtml.remove();
     }
-    console.log(cart);//apres suppression
-
     cart = JSON.stringify(cart);
     sessionStorage.setItem("cart", cart)
+    window.location.href = window.location.href;
 }
 function displayTotalPrice(){
     let cart = sessionStorage.getItem("cart");
     cart = JSON.parse(cart);
-    var prix = 0;
-    for (var i=0; i < cart.length; i++){
+    let prix = 0;
+    for (let i=0; i < cart.length; i++){
        prix = prix + cart[i].price * cart[i].qte;
     }
-    var subtotal = document.querySelector(".subtotal");
+    const subtotal = document.querySelector(".subtotal");
     subtotal.textContent = "Total :"+" "+ prix +" "+"€";
 }
-
-function validationMail(event){
-    event.preventDefault();
-    if (courriel.validity.valueMissing){
-        missMail.textContent = "Mail manquant";
-        return false;
-    } else if (mailValid.test(courriel.value) == false){
-        missMail.textContent = "Format incorrect";
-        return false;
-    } else {
-        missMail.textContent = "";
-    }
-    return true;
-}
-function validationNom(event){
-    event.preventDefault();
-    if (nom.validity.valueMissing){
-        event.preventDefault();
-        missNom.textContent = "Nom manquant";
-        return false;
-    } else if (nomValid.test(nom.value) == false){
-        event.preventDefault();
-        missNom.textContent = "Format incorrect";
-        return false;
-    } else {
-            missNom.textContent = "";
-        }
-    return true;
-}
-function validationPrenom(event){
-    event.preventDefault();
-    if (prenom.validity.valueMissing){
-        event.preventDefault();
-        missPrenom.textContent = "Prénom manquant";
-        return false;
-    } else if (prenomValid.test(prenom.value) == false){
-        event.preventDefault();
-        missPrenom.textContent = "Format incorrect";
-        return false;
-    } else {
-            missPrenom.textContent = "";
-        }
-    return true;
-}
-function validationAdresse(event){
-    event.preventDefault();
-    if (adresse.validity.valueMissing){
-        event.preventDefault();
-        missAdresse.textContent = "adresse manquant";
-        return false;
-    console.log(missAdresse.textContent);
-    } else if (adresseValid.test(adresse.value) == false){
-        event.preventDefault();
-        missAdresse.textContent = "Format incorrect";
-        return false;
-    } else {
-        missAdresse.textContent = "";
-        }
-    return true;
-}
-function validationVille(event){
-    event.preventDefault();
-    if (ville.validity.valueMissing){
-        event.preventDefault();
-        missVille.textContent = "Ville manquant";
-        return false;
-    console.log(missVille.textContent);
-    } else if (villeValid.test(ville.value) == false){
-        event.preventDefault();
-        missVille.textContent = "Format incorrect";
-        return false;
-    } else {
-        missVille.textContent = "";
-        }
-    return true;
-}
-function validationCodePostale(event){
-    event.preventDefault();
-    if (codePostale.validity.valueMissing){
-        event.preventDefault();
-        missCodePostale.textContent = "Code postale manquant";
-        return false;
-    console.log(missCodePostale.textContent);
-    } else if (codePostaleValid.test(codePostale.value) == false){
-        event.preventDefault();
-        missCodePostale.textContent = "Format incorrect";
-        return false;
-    } else {
-            
-        }
-    return true;
-}
-function passerCommande(){
+function validerCommande(){
     let cart = sessionStorage.getItem("cart")
         cart = JSON.parse(cart);
-        missCodePostale.textContent = "";
+        
         alert("Votre commande a bien prise en compte !");
-        sessionStorage.clear();
+        const item = document.getElementById("infosProduits");
+        item.textContent = "Votre commande est bien enregistré !!!";
         nom.value="";
         prenom.value="";
         courriel.value="";
         adresse.value="";
         ville.value="";
         codePostale.value="";
-        var acheter = document.querySelector(".container");
-        acheter.textContent="";
         
-        var subtotal = document.querySelector(".subtotal");
+        const subtotal = document.querySelector(".subtotal");
         subtotal.textContent ="";
 
-    console.log("bravo");
+        document.location.href="commande.html";
 }
-let order = {
-    contact: {
-        firstName: "test1",
-        lastName: "test2",
-        address: "test3",
-        city: "test4",
-        email: "test5"
-    },
-    product:["idtest1", "idtest2", "idtest3", "idtest4", "idtest5"]
+const formElt = document.querySelector('.form');
+
+async function postOrder() {
+    
+    let cart = sessionStorage.getItem("cart")
+    cart = JSON.parse(cart);
+    let idCameras = [];  
+    for (i=0; i<cart.length; i++){
+        idCameras.push(cart[i].id);
+    }
+    const formData = new FormData(formElt);
+    const data = Object.fromEntries(formData);
+    const order = {
+        contact: {
+            firstName: prenom.value,
+            lastName: nom.value,
+            address: adresse.value,
+            city: ville.value,
+            email: courriel.value
+        },
+        products : idCameras
+    }
+    console.log(order);
+    await fetch("http://localhost:3000/api/cameras/order", {
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify(order)//changer en JSON avant de l'envoyer au serveur(donné avec guillemets: clés et valeurs)
+    }).then(res => res.json())//en JS normale 
+      .then(data => {
+        console.log(data)
+        sessionStorage.setItem("orderId", data.orderId);
+        validerCommande()
+    })
+      .catch(error => console.log(error))
 }
+
+
