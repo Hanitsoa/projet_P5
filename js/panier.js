@@ -187,8 +187,8 @@ async function postOrder() {
         headers: {
             'content-type': 'application/json'
         },
-        body: JSON.stringify(order)//changer en JSON avant de l'envoyer au serveur(donné avec guillemets: clés et valeurs)
-    }).then(res => res.json())//en JS normale 
+        body: JSON.stringify(order)
+    }).then(res => res.json()) 
       .then(data => {
         console.log(data)
         sessionStorage.setItem("orderId", data.orderId);
