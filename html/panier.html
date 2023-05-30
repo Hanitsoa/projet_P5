@@ -2,6 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
 	<title>panier</title>
 	<link rel="stylesheet" type="text/css" href="../css/style.css">
 </head>
@@ -9,24 +10,18 @@
 	<header>
 		<nav>
 			<a href="projet_P5.html"><img src="../logo_Orinoco.png" alt="Orinoco"/></a>
-			<span><a href="commande.html">Commande</a>
-			<a href="panier.html">Panier</a></span>
+			<span><a href="cameras.html">Produits</a>
 		</nav>
 	</header>
-	<main>
+	<main id="pagePannier">
 		<h1>LES PRODUITS DANS VOS PANIERS</h1>
-		<fieldset>
-		        <legend>Vos produits</legend>  
-			<div>
-				<img id="image" >
-				<p id="infosProduits"></p>
-			</div>
-
-<p class="subtotal"></p>
-
+		<fieldset class="produits">
+		    <legend>Vos produits</legend>  
+			<div id="infosProduits"></div>
+			<p class="subtotal"></p>
 		</fieldset>
-		<form>
-			<!-- <fieldset> -->
+		<form class="form">
+			<fieldset>
 		        <legend>Vos coordonnées</legend> 
 			    <p>
 			        <label for="nom">Votre nom :</label><br>
@@ -35,19 +30,22 @@
 	            </p>
 	            <p>
 			        <label for="prenom">Votre prénom :</label><br>
-			        <input type="text" name="prenom" id="prenom" required placeholder="prenom" pattern="[A-Z][a-z]+([-A-Z][a-z]*)*">
+			        <input type="text" name="prenom" id="prenom" required placeholder="prenom" pattern="[A-Z][a-z]+">
+			        <!-- ([-A-Z][a-z]*)* -->
     				<span id="missPrenom"></span>
 			    </p>
 				<p>
-		            <label for="courriel">Votre courriel</label><br>
-		            <input type="email" name="courriel" id="courriel" required placeholder="utilisateur@domaine.fr" pattern="[a-zA-Z0-9._-]+@[a-zA-Z-]+\.[a-zA-Z]{2,3}">
+		            <label for="courriel">Votre courriel :</label><br>
+		            <input type="email" name="courriel" id="courriel" required placeholder="utilisateur@domaine.fr" pattern="^\S+@\S+$">
+		            
+		            <!-- [-zA-Z0-9._-]+@[a-z]+\\.[a-zA-Z]{2,3}"  -->
     				<span id="missMail"></span>
 		        </p> 
-			<!-- </fieldset>	 -->
-      		<!-- <fieldset>	 -->
-		        <!-- <legend>Votre adresse</legend> -->
+			</fieldset>	
+      		<fieldset>	
+		        <legend>Votre adresse</legend>
 			    <p>
-			        <label for="adresse">rue:</label><br>
+			        <label for="adresse">rue :</label><br>
 			        <input type="text" name="adresse" required id="adresse" placeholder="Rue" pattern="[0-9]{1,4}[\s][a-zA-Z][a-z]+([\s][A-Za-z]*)*">
 			        <span id="missAdresse"></span>
 	            </p>
@@ -57,14 +55,13 @@
 			        <span id="missVille"></span>
 			    </p>
 				<p>
-		            <label for="codePostale">code postale</label><br>
+		            <label for="codePostale">code postale :</label><br>
 		            <input type="real" name="codePostale" id="codePostale" placeholder="Code Postale" required pattern="[0-9]{5}">
 		            <span id="missCodePostale"></span>
 	        	</p>
-	        	
-        	<!-- </fieldset><br> -->
-        	    
-			<input type="submit" id="bouton_envoi" value="Valider ma commande"></br>
+	        </fieldset>
+        	<br>
+        	<button type="submit" id="bouton_envoi" value="Valider ma commande" class="primarybutton">VALIDER MA COMMANDE</button></br>
 		</form>
 	</main>
 	<footer>
@@ -73,11 +70,9 @@
 			<li><a href="Contacteznous.html">Contactez-nous</a></li>
 		</ul>
 	</footer>
-	
-	<script src="../js/ajax.js"></script>
+	<script src="../js/validation.js"></script>
 	<script src="../js/storage.js"></script>
     <script src="../js/panier.js"></script>
-    
 </body>
 </html>
 

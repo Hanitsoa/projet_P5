@@ -1,4 +1,4 @@
-main, h1 {
+main, h1, .infos {
 	text-align: center;
 }
 a {
@@ -6,13 +6,18 @@ a {
 }
 #cameras {
 	display: flex;
-	
 	justify-content: space-between;
+}
+main #pagePanier{
+	background-color: #f2f2f2;
+}
+body, #page {
+	margin-left: auto;
+	margin-right: auto;
 }
 #cameras img {
 width: 90%;
 height: 100%;
-
 }
 img {
 	width: 12%;
@@ -33,32 +38,71 @@ li {
 section {
 	display: flex;
 	flex-direction: row;
+	align-items: center;
 }
-#produit {
-	width: 50%;
+#produit, .infos {
+	width: 48%;
+	margin-left: auto;
+	margin-right: auto;
 }
 #produit img {
-	width: 100%;
-}
-.infos {
-	width: 50%;
-	border: solid black 2px;
-	text-align: center;
+	width: 83%;
 }
 .choix {
 	display: flex;
 	flex-direction: column;
+	width: 60%;
+}
+footer {
+	font-size: 0.8rem;
+}
+#photo {
+	cursor: pointer;
+	border-radius: 4px;
+	padding: 8px 20px;
+	font-size: 1rem;
+}
+.ajoutproduit {
+	background-color: #04AA6D;
+  color: white;
+  font-size: 1rem;
+  padding: 8px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+/*  width: 99.5%;*/
+}
+.ajoutproduit:hover {
+	background-color: #45a049;
+}
+.retourproduit {
+	border-radius: 4px;
+  cursor: pointer;
+  border: none;
+  background-color: inherit;
+  padding: 8px 28px;
+  font-size: 1rem;
+  border: 1px solid black;
+}
+.retourproduit:hover, #photo:hover {
+	background-color: #CEDDEA ;
+}
+aside {
+	font-size: 1rem;
+	margin-left: 0px;
+	justify-content: center;
 }
 article {
 	width: 50%;
 	margin: auto;
+	padding-top: 10px;
 }
-input:invalid+span:after {
+/*input:invalid+span:after {
   position: absolute;
   content: '✖';
   padding-left: 5px;
   color: red;
-}
+}*/
 
 input:valid+span:after {
   position: absolute;
@@ -69,55 +113,249 @@ input:valid+span:after {
 .container {
 	display: flex;
 	flex-direction: row;
-	justify-content: center;
+	justify-content: space-between;
 	font-weight: normal;
-	padding-left: 40px;
-	/*border: solid black 1px;*/
+	padding-left: 90px;
 	margin-bottom: 20px;
 }
 .container img {
-	/*border: solid black 1px;*/
+/*	border: solid black 1px;*/
 	/*width: 100px;*/
-	padding-right: 50px;
+/*	padding-right: 50px;*/
 }
 .container p {
-	padding-right: 50px;
-	/*border: solid black 1px;*/
+	padding-right: auto;
 	width: 60px;
+	text-align: center;
 }
 #infosProduits {
 	font-weight: bold;
-	/*border: solid black 1px;*/
 	justify-content: center;
 }
 .subtotal {
 	font-weight: bold;
+	margin: 0;
 }
 #infosProduits .designation {
 	display: flex;
 	flex-direction: row;
+}
+section {
+	display: flex;
+	flex-direction: row;
 	justify-content: center;
-	
-	padding-left: 24px;
-	/*width: 100px;*/
+	align-content: center;
+	margin: 0px;
+	padding: 0px;
+}
+.designation {
+	justify-content: space-between;
 }
 .designation p {
-	/*border: solid black 1px;*/
-	
-	padding-right: 73px;
+	padding-right: 30px;
+	padding-left: 50px;
 }
 .designation a {
-	/*border: solid black 1px; */
 	justify-content: center;
 	padding-top: 16px;
 	color: red;
 }
 .container .quantite {
-	/*color: red;*/
-	width: 10px;
+	width: 60px;
 	justify-content: center;
-	/*border: solid black 1px;*/
+}
+.quantite {
+	margin-left: -5%;
 }
 #infosProduits button {
 	width: 110px;
+}
+.categorie {
+	display: flex;
+	flex-direction: column;
+	font-weight: bold;
+	font-size: 1.5rem;
+}
+.categorie:hover{
+	-webkit-transform: scale(1.1);
+	-moz-transform: scale(1.1);
+	-o-transform: scale(1.1);
+	transform: scale(1.1);
+}
+.nameElt {
+	font-size: 1rem;
+	margin-bottom: 1.5px ;
+}
+.retour {
+	color: black;
+}
+.primarybutton[type=submit]{
+	background-color: #04AA6D;
+  color: white;
+  font-size: 1rem;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+/*  width: 99.5%;*/
+}
+.primarybutton[type=submit]:hover {
+	background-color: #45a049;
+}
+#pagePanier, fieldset {
+	background-color: #f2f2f2;
+}
+fieldset {
+	border: none;
+/*  background-color: #C2B0F9;*/
+	background-color: #f2f2f2;
+  border: 2px solid #CCDCEA ;
+  border-radius: 6px;
+  margin: 5px auto;
+}
+form fieldset {
+	width: 60%;
+	align-content: center;
+}
+form fieldset p {
+	display: flex;
+	text-align: left;
+	margin-bottom: 5px;
+	margin-top: 5px;
+}
+fieldset input {
+	margin-left: 10px;
+	width: 75%;
+	padding: 5px;
+	margin-bottom: 0;
+}
+fieldset label {
+	width: 19.5%;
+	margin-bottom: 0px;
+}
+legend {
+  background-color: white;
+  border: 2px solid #CCDCEA ;
+  border-radius: 6px;
+  padding: 4px;
+	width: 40%;
+	margin-bottom: 5px;
+	margin-top: 5px;
+}
+.retour, .supprime {
+  border-radius: 4px;
+  cursor: pointer;
+  border: none;
+  background-color: inherit;
+  padding: 14px 28px;
+  font-size: 15px;
+}
+.retour:hover, .supprime:hover {
+	background-color: #CEDDEA ;
+}
+.container .supprime {
+		margin-top: 5px;
+		margin-left: -20px;
+		height: 20%;
+}
+.retour {
+	margin-top: 5px;
+	padding-left: 30px;
+}
+article.choix,.retourproduit, #photo, .ajoutproduit {
+		padding: 5px 5px;
+		font-size: 0.7rem;
+	}
+	.appareil {
+		padding: 0px;
+	}
+@media screen and (max-width:480px) {
+	#page {
+		display: flex;
+		flex-direction: column;
+		margin-left: 0px;
+		padding-left: 0;
+		width: 100%;
+		justify-content: center;
+	}
+	body {
+		margin: auto;
+	}
+	.appareil {
+		font-size: 1rem;
+	}
+	article.choix,.retourproduit, #photo, .ajoutproduit {
+		width: 100%;
+		padding: 5px 5px;
+		font-size: 0.7rem;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	section {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	#cameras {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		justify-items: center;
+	}
+	#cameras img {
+		width: 30%;
+		height: 40%;
+	}
+	h1{
+		font-size: 1rem;
+		font-family: arial;
+	}
+	.priceElt {
+		font-size: 1rem;
+		margin-top: -1.5px;
+	}
+	.nameElt {
+		font-size: 1rem;
+		margin-bottom: 1.5px ;
+	}
+	.categorie p {
+		display: block;
+		margin-block-start: 0;
+		margin-block-end: 0;
+	}
+	.categorie {
+		margin-bottom: 10px;
+	} 
+	footer, header {
+		font-size: 0.5rem;
+	}
+	nav img {
+		width:30%;
+	}
+}
+
+@media all and (min-width: 480px) and (max-width: 1440px) {
+	#page {
+		display: flex;
+		flex-direction: column;
+		margin-left: 0px;
+		padding-left: 0;
+		width: 100%;
+		height: 570px;
+		justify-content: center;
+	}
+	nav span {
+		display: flex;
+		flex-direction: row;
+		font-size: 1rem;
+	}
+	nav span a {
+		padding-left: 10px;
+	}
+	.priceElt, h1 {
+		font-size: 1rem;
+	}
+	footer {
+		font-size: 0.7rem;
+	}
 }

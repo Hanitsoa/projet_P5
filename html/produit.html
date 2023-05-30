@@ -2,32 +2,31 @@
 <html>
 <head>
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>produit</title>
 	<link rel="stylesheet" type="text/css" href="../css/style.css">
 </head>
 <body>
+	<div id="page">
 	<header>
 		<nav>
 			<a href="projet_P5.html"><img src="../logo_Orinoco.png" alt="Orinoco"/></a>
-			<span><a href="commande.html">Commande</a>
 			<a href="panier.html">Panier</a></span>
 		</nav>
 	</header>
 	<main>
-		<h1>AJOUTEZ DANS LE PANIER</h1>
+		<h1>AJOUTER DANS LE PANIER</h1>
 		<section>
-		<div id="produit"></div>
+			<div id="produit"></div>
 		</section>
 		<p>
-            <!-- <label for="lentille">lentilles :</label> -->
-            <select name="lentille" id="photo">
+            <select name="lentille" id="photo" class="lentille">
             	<option value="Choisissez votre lentille" selected>Choisissez votre lentille</option>
             </select>
-            <p id="log"></p>
+            <p id="selectLentille"></p>
         </p>
-        <input type="submit" value="Ajoutez au panier">
-        <button><a href="cameras.html">Retour aux Produits</a></button>
-
+        <input type="submit" value="Ajouter au panier" class="ajoutproduit">
+        <button class="retourproduit"><a href="cameras.html">Retour aux produits</a></button>
 	</main>
 	<footer>
 		<ul>
@@ -35,9 +34,8 @@
 			<li><a href="Contacteznous.html">Contactez-nous</a></li>
 		</ul>
 	</footer>
-	<script src="../js/ajax.js"></script>
 	<script src="../js/storage.js"></script>
     <script src="../js/produit.js"></script>
-    
+    </div>
 </body>
 </html>
