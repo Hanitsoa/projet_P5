@@ -1,13 +1,12 @@
 function addItemToCart(item) {
     let cart = sessionStorage.getItem("cart")
     if (cart){
-        cart = JSON.parse(cart); //on change JSON pour pouvoir W avec
-        if (cart.some(elt => (elt.id === item.id) && (elt.lenses === item.lenses))){ //Au moins 1 ok
-            let index = cart.findIndex(elt => (elt.id === item.id) && (elt.lenses === item.lenses)); //trouver
-            // le bon endroit (index) ou c ok
+        cart = JSON.parse(cart); 
+        if (cart.some(elt => (elt.id === item.id) && (elt.lenses === item.lenses))){ 
+            let index = cart.findIndex(elt => (elt.id === item.id) && (elt.lenses === item.lenses)); 
             cart[index].qte += 1;
             cart = JSON.stringify(cart)
-            sessionStorage.setItem("cart", cart); //on recharge le sessionStorage
+            sessionStorage.setItem("cart", cart); 
         }
         else {
             cart.push(item)
@@ -15,7 +14,7 @@ function addItemToCart(item) {
             sessionStorage.setItem("cart", cart)
         }
     } else {
-        cart = JSON.stringify([item]) //on change en chaine de caractere pour le sessioStorage
+        cart = JSON.stringify([item]) 
         sessionStorage.setItem("cart", cart)
     }
 }
