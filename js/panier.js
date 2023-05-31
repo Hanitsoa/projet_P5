@@ -62,7 +62,6 @@ function afficher(produit, index){
     supprime.className = "supprime"
 
     supprime.setAttribute("data-index", index);
-    console.log(supprime);
     div.appendChild(supprime);
 
     supprime.addEventListener("click", function(e){
@@ -92,11 +91,6 @@ const villeValid = /^[A-Z][a-z]+$/
 const missCodePostale = document.getElementById("missCodePostale");
 const codePostaleValid = /^[0-9]{5}$/
 
-            // [miniscule Majuscule 0à9 ._-]
-            // + veut dire peuvent repeter autant de fois
-            // \ pour dire au serveur que c'est un caractere (ici point)
-            // /^ debut d'un regex,3}
-            // $/ la fin d'un regex
 formValid.addEventListener("click", function(event){
     let validators = [] 
     validators.push(validationMail(event));
@@ -105,16 +99,13 @@ formValid.addEventListener("click", function(event){
     validators.push(validationAdresse(event));
     validators.push( validationVille(event));
     validators.push(validationCodePostale(event));
-    console.log(validators);
-                       
+                           
     if (validators.every((value) => value === true )){
         postOrder();
     }        
 });
 
 function supprimer(event){
-    console.log(event.target.dataset.index);
-   
     let cart = sessionStorage.getItem("cart")
     cart = JSON.parse(cart);
     productHtml = event.target.parentNode;
@@ -181,7 +172,6 @@ async function postOrder() {
         },
         products : idCameras
     }
-    console.log(order);
     await fetch("http://localhost:3000/api/cameras/order", {
         method: 'POST',
         headers: {
@@ -190,7 +180,6 @@ async function postOrder() {
         body: JSON.stringify(order)
     }).then(res => res.json()) 
       .then(data => {
-        console.log(data)
         sessionStorage.setItem("orderId", data.orderId);
         validerCommande()
     })
