@@ -2,7 +2,6 @@ const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 
 const orinocoElt = document.getElementById("produit");
-console.log(window.location.search);
 const sectionElt = document.getElementsByTagName("section");
 
 let div = document.createElement('div');
@@ -36,7 +35,6 @@ function updateValue(e){
 }
 
 let url =  "http://localhost:3000/api/cameras/" + urlParams.get("id")
-console.log(urlParams.get("id"));
 
 async function afficher(){
     let camerasElt = await fetch(url)
